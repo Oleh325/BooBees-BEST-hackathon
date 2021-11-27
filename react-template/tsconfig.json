@@ -10,7 +10,9 @@
     "paths": {
       "*": ["src/*"],
       "@tldraw/core": ["../../packages/core"]
-    }
+    },
+    "jsx": "react",
+    "allowSyntheticDefaultImports": true
   },
   "references": [{ "path": "../../packages/core" }],
   "typedocOptions": {

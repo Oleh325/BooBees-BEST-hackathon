@@ -15,6 +15,12 @@ import { TitleLinks } from './components/TitleLinks'
 import './styles.css'
 import styled from 'stitches.config'
 import { Api } from 'state/api'
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link
+} from "react-router-dom";
 
 const onHoverShape: TLPointerEventHandler = (info, e) => {
   machine.send('HOVERED_SHAPE', info)
@@ -190,38 +196,38 @@ export default function App({ onMount }: AppProps): JSX.Element {
   // const hideBounds = appState.isInAny('transformingSelection', 'translating', 'creating')
 
   return (
-    <AppContainer>
-      <Renderer
-        shapeUtils={shapeUtils} // Required
-        page={appState.data.page} // Required
-        pageState={appState.data.pageState} // Required
-        meta={appState.data.meta}
-        snapLines={appState.data.overlays.snapLines}
-        onPointShape={onPointShape}
-        onPointBounds={onPointBounds}
-        onPointCanvas={onPointCanvas}
-        onPointerDown={onPointerDown}
-        onPointerMove={onPointerMove}
-        onHoverShape={onHoverShape}
-        onUnhoverShape={onUnhoverShape}
-        onPointBoundsHandle={onPointBoundsHandle}
-        onPointHandle={onPointHandle}
-        onPan={onPan}
-        onPinchStart={onPinchStart}
-        onPinchEnd={onPinchEnd}
-        onPinch={onPinch}
-        onPointerUp={onPointerUp}
-        onBoundsChange={onBoundsChange}
-        onKeyDown={onKeyDown}
-        onKeyUp={onKeyUp}
-        hideBounds={hideBounds}
-        hideHandles={hideBounds}
-        hideIndicators={hideBounds}
-        hideBindingHandles={true}
-      />
-      <Toolbar activeStates={appState.active} lastEvent={appState.log[0]} />
-      <TitleLinks />
-    </AppContainer>
+            <AppContainer>
+              <Renderer
+                  shapeUtils={shapeUtils} // Required
+                  page={appState.data.page} // Required
+                  pageState={appState.data.pageState} // Required
+                  meta={appState.data.meta}
+                  snapLines={appState.data.overlays.snapLines}
+                  onPointShape={onPointShape}
+                  onPointBounds={onPointBounds}
+                  onPointCanvas={onPointCanvas}
+                  onPointerDown={onPointerDown}
+                  onPointerMove={onPointerMove}
+                  onHoverShape={onHoverShape}
+                  onUnhoverShape={onUnhoverShape}
+                  onPointBoundsHandle={onPointBoundsHandle}
+                  onPointHandle={onPointHandle}
+                  onPan={onPan}
+                  onPinchStart={onPinchStart}
+                  onPinchEnd={onPinchEnd}
+                  onPinch={onPinch}
+                  onPointerUp={onPointerUp}
+                  onBoundsChange={onBoundsChange}
+                  onKeyDown={onKeyDown}
+                  onKeyUp={onKeyUp}
+                  hideBounds={hideBounds}
+                  hideHandles={hideBounds}
+                  hideIndicators={hideBounds}
+                  hideBindingHandles={true}
+              />
+              <Toolbar activeStates={appState.active} lastEvent={appState.log[0]} />
+              <TitleLinks />
+            </AppContainer>
   )
 }
 
