@@ -1,25 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import * as React from "react"
+import { Renderer, TLShape, TLShapeUtil, Vec } from '@tldraw/core'
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const [page, setPage] = React.useState({
+    id: "page",
+    shapes: {
+      "box1": {
+        id: 'box1',
+        type: 'box',
+        parentId: 'page',
+        childIndex: 0,
+        point: [0, 0],
+        size: [100, 100],
+        rotation: 0,
+      }
+    },
+    bindings: {}
+  })
+
+  const [pageState, setPageState] = React.useState({
+    id: "page",
+    selectedIds: [],
+    camera: {
+      point: [0,0],
+      zoom: 1
+    }
+  })
+
+  return (<Renderer
+      page={page}
+      pageState={pageState}
+      shapeUtils={TLShapeUtil}
+  />)
 }
 
 export default App;
