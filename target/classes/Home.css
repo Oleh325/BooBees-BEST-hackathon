@@ -1,0 +1,96 @@
+*{
+    text-decoration: none;
+    border: none;
+    padding: 0px;
+    margin: 0px;
+    font-size: 24pt;
+    color: white;
+}
+
+*:focus {
+    outline: 0;
+}
+
+
+body {
+    background-color: #1F1F1F;
+    height: 100%;
+}
+
+input {
+    width: 100%;
+    padding: 15px;
+    color: #fff;
+}
+
+input[type=text] {
+    background-color: #343434;
+    margin-bottom: 15px;
+    padding-right: 0;
+}
+
+input[type=submit] {
+    background-color: #009A49;
+
+}
+
+input[type=submit]:hover {
+    background-color: #016938;
+    cursor: pointer;
+}
+
+button {
+    background-color: #009A49;
+    padding: 17px;
+}
+
+.centerForm {
+    width: 30%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.centerForm * {
+    width: 100%;
+}
+
+#join {
+    margin: auto;
+    margin-bottom: 15px;
+}
+
+#joinBtn {
+    width: auto;
+    margin-left: 15px;
+    margin-bottom: 15px;
+}
+
+.listItem {
+    display: flex;
+    flex-direction: row;
+}
+
+.listItemText {
+    margin: auto;
+}
+
+
+.avatar {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    margin: 15px;
+}
+
+.topPanel {
+    display: flex;
+    justify-content: space-between;
+    background-color: #1F1F1F;
+}
+
+.topPanelText {
+    margin: auto 30px;
+}
