@@ -14,8 +14,10 @@ public class Drawing {
     @Id
     private String id;
     private Boolean isComplete;
+    private Boolean isLocked;
+    private Boolean isStateful;
     private String name;
-    private String type;
+    private String typfe;
     private Integer childIndex;
     private String parentId;
     private List<Float> point;

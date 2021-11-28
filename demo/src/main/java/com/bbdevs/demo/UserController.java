@@ -1,16 +1,15 @@
 package com.bbdevs.demo;
 
 import com.bbdevs.demo.entity.User;
-import com.bbdevs.demo.repository.RoomDAO;
 import com.bbdevs.demo.repository.UserDAO;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@org.springframework.stereotype.Controller
+@CrossOrigin
+@Controller
 @RequiredArgsConstructor
 public class UserController {
 

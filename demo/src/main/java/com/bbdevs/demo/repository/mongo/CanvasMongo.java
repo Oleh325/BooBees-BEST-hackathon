@@ -1,4 +1,4 @@
-package com.bbdevs.demo.repository;
+package com.bbdevs.demo.repository.mongo;
 
 import com.bbdevs.demo.entity.Canvas;
 import org.springframework.data.mongodb.repository.MongoRepository;
