@@ -40,5 +40,4 @@ public class CanvasController {
             return canvasMongo.findAll().stream().findFirst().orElseThrow(() -> new RuntimeException("unknown error occured"));
         }
     }
-
 }

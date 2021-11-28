@@ -47,13 +47,13 @@ function Drawroom() {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(e.shapes)
         };
-        fetch('http://192.168.88.194:8080/saveCanvas', requestOptions)
+        fetch('http://192.168.88.201:8080/saveCanvas', requestOptions)
         myDocument.pages.page1.shapes = e.shapes
         app.updateDocument(myDocument)
     }
 
      function updateShapes() {
-         fetch('http://192.168.88.194:8080/getCanvas')
+         fetch('http://192.168.88.201:8080/getCanvas')
              .then(respone => respone.json())
              .then(data => {
                  myDocument.pages.page1.shapes = data.shapes
