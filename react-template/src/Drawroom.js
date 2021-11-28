@@ -6,7 +6,7 @@ function Drawroom() {
 
     const [app, setApp] = useState();
 
-    const myDocument = {
+    let myDocument = {
         id: 'doc',
         version: TldrawApp.version,
         pages: {
@@ -34,10 +34,11 @@ function Drawroom() {
         return () => {
             clearInterval(handle);
         }
-    })
+    }, [updateShapes])
 
     function handleMount(app) {
         console.log(app.selectAll())
+        myDocument = app.document
         setApp(app)
     }
 
@@ -56,14 +57,23 @@ function Drawroom() {
          fetch('http://192.168.88.201:8080/getCanvas')
              .then(respone => respone.json())
              .then(data => {
+                 console.log(data)
+                 //myDocument.pages.page1.setShapes(data.shapes)
+                 let oldDocument = myDocument.pages.page1.shapes
                  myDocument.pages.page1.shapes = data.shapes
-                 app.updateDocument(myDocument)
+                 console.log(myDocument.pages.page1)
+                 try {
+                     app.updateDocument(myDocument)
+                 } catch (e) {
+                     console.log("caught exception")
+                     app.updateDocument(oldDocument)
+                 }
              })
      }
 
   return (
       <div>
-          <Tldraw darkMode={true} document={myDocument} showMenu={false} showPages={false} showSponsorLink={false} showZoom={false} autofocus={true} onPersist={onPersist} onMount={handleMount}/>
+          <Tldraw document={myDocument} showMenu={false} showPages={false} showSponsorLink={false} showZoom={false} autofocus={false} onPersist={onPersist} onMount={handleMount}/>
       </div>
   );
 }

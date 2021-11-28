@@ -33,7 +33,7 @@ function Lobby() {
             .then(response => response.json())
             .then(data => console.log(data));
         setGameStarted(true)
-        navigate("/drawroom", {replace: false})
+        navigate("/drawroom")
     }
 
     return (

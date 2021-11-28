@@ -1,5 +1,4 @@
 import './App.css';
-import './Home.css';
 
 import Home from "./Home";
 import {
