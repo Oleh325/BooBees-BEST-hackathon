@@ -1,31 +1,47 @@
 package com.bbdevs.demo;
 
 import com.bbdevs.demo.entity.Canvas;
-import com.bbdevs.demo.entity.Room;
-import com.bbdevs.demo.repository.CanvasMongo;
+import com.bbdevs.demo.entity.Drawing;
+import com.bbdevs.demo.repository.mongo.CanvasMongo;
 import lombok.RequiredArgsConstructor;
+import lombok.val;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequiredArgsConstructor
 public class CanvasController {
     private final CanvasMongo canvasMongo;
 
-    @GetMapping("/saveCanvas")
+    @CrossOrigin
+    @PostMapping("/saveCanvas")
     @ResponseBody
-    public String saveUser() {
+    public String saveCanvas(@RequestBody List<Drawing> shapes) {
         Canvas canvas = new Canvas();
+        shapes.forEach(s -> s.setIsLocked(false));
+        shapes.forEach(s -> s.setIsStateful(false));
+        canvas.setShapes(shapes);
+        canvasMongo.deleteAll();
         canvasMongo.save(canvas);
         return "Canvas with id " + canvas.getId() + " is saved";
     }
 
+    @CrossOrigin
     @GetMapping("/getCanvas")
     @ResponseBody
-    public List<Canvas> getRooms() {
-        return canvasMongo.findAll();
+    public Canvas getCanvas() {
+        Optional<Canvas> optionalCanvas = canvasMongo.findAll().stream().findFirst();
+        if (optionalCanvas.isPresent()) return optionalCanvas.get();
+        else {
+            Canvas canvas = new Canvas();
+            canvas.setShapes(List.of());
+            canvasMongo.save(canvas);
+            return canvasMongo.findAll().stream().findFirst().orElseThrow(() -> new RuntimeException("unknown error occured"));
+        }
     }
+
 }

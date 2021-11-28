@@ -16,13 +16,13 @@ public class RoomController {
 
     @GetMapping("/saveRoom")
     @ResponseBody
-    public String saveUser() {
+    public String saveRoom() {
         Room room = new Room();
         roomDAO.save(room);
         return "Room with id " + room.getRoomId() + " is saved";
     }
 
-    @GetMapping("/getRoom")
+    @GetMapping("/getRooms")
     @ResponseBody
     public List<Room> getRooms() {
         return roomDAO.findAll();

@@ -14,6 +14,8 @@ public class Drawing {
     @Id
     private String id;
     private Boolean isComplete;
+    private Boolean isLocked;
+    private Boolean isStateful;
     private String name;
     private String type;
     private Integer childIndex;
