@@ -5,9 +5,7 @@ import './Home.css';
 function Home() {
     const [nickname, setNickname] = useState("")
     const [roomId, setRoomId] = useState("")
-
     let navigate = useNavigate();
-
     return (
         <div className="centerForm">
             <input type="text" onChange={e => setNickname(e.target.value)} placeholder="Your nickname" />
@@ -20,12 +18,15 @@ function Home() {
         </div>
     );
 
+
+
     function validateNickname() {
-        if ((nickname.length < 3) || (nickname.length > 15)) {
+        if ((nickname.length <3) || (nickname.length > 15)) {
             document.getElementById("errorMsg").innerHTML = "Pls enter a nickname between 3 and 15 chars 🥺👉👈";
             return false;
-        } else
+        } else {
             navigate("lobby", {replace: false})
+        }
     }
 }
 

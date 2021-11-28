@@ -25,7 +25,6 @@ input {
 
 input[type=text] {
     background-color: #343434;
-    margin-bottom: 15px;
     padding-right: 0;
 }
 
@@ -39,9 +38,14 @@ input[type=submit]:hover {
     cursor: pointer;
 }
 
+button:hover {
+    background-color: #016938;
+    cursor: pointer;
+}
+
 button {
     background-color: #009A49;
-    padding: 17px;
+    padding: 15px;
 }
 
 .centerForm {
@@ -93,4 +97,10 @@ button {
 
 .topPanelText {
     margin: auto 30px;
+}
+
+#errorMsg {
+    color: #af0f0f;
+    font-size: 14pt;
+    margin: 15px;
 }
