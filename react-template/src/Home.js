@@ -25,6 +25,15 @@ function Home() {
             document.getElementById("errorMsg").innerHTML = "Pls enter a nickname between 3 and 15 chars 🥺👉👈";
             return false;
         } else {
+            let url = 'http://192.168.88.201:8080'
+            if (localStorage.getItem('userId') === null) {
+                url += '/saveUser?name=' + nickname
+            } else {
+                url += '/updateUser?name=' + nickname + '&id=' + localStorage.getItem('userId')
+            }
+            fetch(url)
+                .then(response => response.json())
+                .then(data => localStorage.setItem('userId', data.id));
             navigate("lobby", {replace: false})
         }
     }

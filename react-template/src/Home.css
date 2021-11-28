@@ -48,6 +48,11 @@ button {
     padding: 15px;
 }
 
+button:disabled {
+    background-color: #525252;
+    padding: 15px;
+}
+
 .centerForm {
     width: 30%;
     position: absolute;
