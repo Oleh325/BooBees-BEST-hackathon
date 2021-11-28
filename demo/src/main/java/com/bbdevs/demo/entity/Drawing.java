@@ -17,7 +17,7 @@ public class Drawing {
     private Boolean isLocked;
     private Boolean isStateful;
     private String name;
-    private String type;
+    private String typfe;
     private Integer childIndex;
     private String parentId;
     private List<Float> point;

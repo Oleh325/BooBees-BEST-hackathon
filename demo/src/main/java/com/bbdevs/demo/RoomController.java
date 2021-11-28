@@ -4,17 +4,20 @@ import com.bbdevs.demo.entity.Room;
 import com.bbdevs.demo.repository.RoomDAO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
+@CrossOrigin
 @Controller
 @RequiredArgsConstructor
 public class RoomController {
     private final RoomDAO roomDAO;
 
-    @GetMapping("/saveRoom")
+    @PostMapping("/saveRoom")
     @ResponseBody
     public String saveRoom() {
         Room room = new Room();

@@ -24,8 +24,12 @@ function Home() {
         if ((nickname.length < 3) || (nickname.length > 15)) {
             document.getElementById("errorMsg").innerHTML = "Pls enter a nickname between 3 and 15 chars 🥺👉👈";
             return false;
-        } else
+        } else {
+            fetch('http://192.168.88.201:8080/saveUser?name=' + nickname)
+                .then(response => response.json())
+                .then(data => console.log(data));
             navigate("lobby", {replace: false})
+        }
     }
 }
 

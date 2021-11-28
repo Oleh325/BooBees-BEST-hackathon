@@ -4,20 +4,18 @@ import com.bbdevs.demo.entity.Canvas;
 import com.bbdevs.demo.entity.Drawing;
 import com.bbdevs.demo.repository.mongo.CanvasMongo;
 import lombok.RequiredArgsConstructor;
-import lombok.val;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+@CrossOrigin
 @Controller
 @RequiredArgsConstructor
 public class CanvasController {
     private final CanvasMongo canvasMongo;
 
-    @CrossOrigin
     @PostMapping("/saveCanvas")
     @ResponseBody
     public String saveCanvas(@RequestBody List<Drawing> shapes) {
@@ -30,7 +28,6 @@ public class CanvasController {
         return "Canvas with id " + canvas.getId() + " is saved";
     }
 
-    @CrossOrigin
     @GetMapping("/getCanvas")
     @ResponseBody
     public Canvas getCanvas() {
